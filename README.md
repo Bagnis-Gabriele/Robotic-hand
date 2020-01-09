@@ -1,2 +1,6 @@
 # Robotic-hand
- Alternating school-work project by Bagnis Gabriele, Bruno Luca, Cuniberti Andrea, Genovese Tommaso e Giavelli Luca
+ A robotic hand based on motor diabilities. It helps people to regain joint mobility.
+ 
+ # Eletronics parts:
+ >Arduino UNO
+ >
