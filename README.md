@@ -3,7 +3,7 @@
  
  # Eletronics parts:
  1. Arduino UNO
-  -Servo mothors (x5) 
+  - Servo mothors (x5) 
  2. Raspberry PI
  3. Emotiv EPOC+ EEG
  4. Leap Motion
