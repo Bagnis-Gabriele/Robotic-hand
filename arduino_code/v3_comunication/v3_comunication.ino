@@ -36,7 +36,6 @@ void setup() {
   m4.attach(s4);
   m5.attach(s5);
   Serial.begin(9600);
-  Serial1.begin(19200);
 }
 
 void loop(){
@@ -53,34 +52,37 @@ void loop(){
       i++;
     }
     m1.write(number.toInt()); //THUMB
-    Serial1.println(number);
+    Serial.println(number);
     for(k=3; k<6; k++){
       i=0;
       number.setCharAt(i,msg.charAt(k));
       i++;
     }
     m2.write(number.toInt()); //INDEX
-    Serial1.println(number);
+    //Serial.println(number);
     for(k=6; k<9; k++){
       i=0;
       number.setCharAt(i,msg.charAt(k));
       i++;
     }
     m3.write(number.toInt()); //MIDDLE
-    Serial1.println(number);
+    //Serial.println(number);
     for(k=9; k<12; k++){
       i=0;
       number.setCharAt(i,msg.charAt(k));
       i++;
     }
     m4.write(number.toInt()); //RING
-    Serial1.println(number);
+    //Serial.println(number);
     for(k=12; k<15; k++){
       i=0;
       number.setCharAt(i,msg.charAt(k));
       i++;
     }
     m5.write(number.toInt()); //PINKIE
-    Serial1.println(number);
+    //Serial.println(number);
+
+    Serial.println("\n------------------------------------------\n");
   }
+  
 }
