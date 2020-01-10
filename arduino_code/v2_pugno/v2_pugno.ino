@@ -32,48 +32,65 @@ void setup() {
   m4.attach(s4);
   m5.attach(s5);
   Serial.begin(9600);
+
+  m1.write(180);
+  m2.write(180);
+  m3.write(180);
+  m4.write(180);
+  m5.write(180);
+
+  delay(2000);
 }
 
 void loop(){
-  //set the servo degree
-  m1.write(p1);
-  if(p2 > 30) m2.write(p2);
-  if(p3 > 60) m3.write(p3);
-  if(p4 > 90) m4.write(p4);
-  if(p5 > 120) m5.write(p5);
+  /*close
+  for(int k=0; k<MAX_DEGREE; k+=5){
+    //increment all servos dergees
+    p1 += 5;
+    p2 += 5;
+    p3 += 5;
+    p4 += 5;
+    p5 += 5;
 
-  Serial.println(p1);
-  Serial.println(p2);
-  Serial.println(p3);
-  Serial.println(p4);
-  Serial.println(p5);
-  
-  //increment the position or reset them if reach 180 degrees
-  if(p1 < 180){
-    p1++;
-  }else{
-    p1 = 0;
-  }
-  if(p2 < 180){
-    p2++;
-  }else{
-    p2 = 0;
-  }
-  if(p3 < 180){
-    p1++;
-  }else{
-    p3= 0;
-  }
-  if(p4 < 180){
-    p4++;
-  }else{
-    p4 = 0;
-  }
-  if(p5 < 180){
-    p5++;
-  }else{
-    p5 = 0;
-  } 
+    //renew servos position
+    m1.write(p1);
+    m2.write(p2);
+    m3.write(p3);
+    m4.write(p4);
+    m5.write(p5);
 
-  delay(4);
+    //delay(4);
+
+    Serial.println(p1);
+    Serial.println(p2);
+    Serial.println(p3);
+    Serial.println(p4);
+    Serial.println(p5);
+  }
+
+  //open
+  for(int k=0; k<MAX_DEGREE; k+=5){
+    //increment all servos dergees
+    p1 -= 5;
+    p2 -= 5;
+    p3 -= 5;
+    p4 -= 5;
+    p5 -= 5;
+
+    //renew servos position
+    m1.write(p1);
+    m2.write(p2);
+    m3.write(p3);
+    m4.write(p4);
+    m5.write(p5);
+
+    //delay(4);
+
+    Serial.println(p1);
+    Serial.println(p2);
+    Serial.println(p3);
+    Serial.println(p4);
+    Serial.println(p5);
+  }
+  */
 }
