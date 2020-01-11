@@ -100,13 +100,17 @@ class SampleListener(Leap.Listener):
                     ardustr[name]=ardu[name]
             global timeCommand
             if time.clock() - timeCommand > config.FREQ_COMMANDS:
-                arduino.write(str(ardustr["Thumb"])+str(ardustr["Index"])+str(ardustr["Middle"])+str(ardustr["Ring"])+str(ardustr["Pinky"]))
-                print "arduino:" + arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()+ arduino.read()
+                arduString = str(ardustr["Thumb"])+str(ardustr["Index"])+str(ardustr["Middle"])+str(ardustr["Ring"])+str(ardustr["Pinky"])
+                arduino.write(arduString)
+                print arduString
+                print "numero 1:" + arduino.read() + arduino.read() + arduino.read()
+                print "numero 2:" + arduino.read() + arduino.read() + arduino.read()
+                print "numero 3:" + arduino.read() + arduino.read() + arduino.read()
+                print "numero 4:" + arduino.read() + arduino.read() + arduino.read()
+                print "numero 5:" + arduino.read() + arduino.read() + arduino.read()
                 timeCommand = time.clock()
-            #print 'T'+str(ardu["Thumb"])+'I'+str(ardu["Index"])+'M'+str(ardu["Middle"])+'R'+str(ardu["Ring"])+'P'+str(ardu["Pinky"])
-            #print str(ardustr["Thumb"])+str(ardustr["Index"])+str(ardustr["Middle"])+str(ardustr["Ring"])+str(ardustr["Pinky"])
         else:
-            #print 'T'+str(position["Thumb"])+'I'+str(position["Index"])+'M'+str(position["Middle"])+'R'+str(position["Ring"])+'P'+str(position["Pinky"])
+            print 'T'+str(position["Thumb"])+'I'+str(position["Index"])+'M'+str(position["Middle"])+'R'+str(position["Ring"])+'P'+str(position["Pinky"])
         
         self.nScan=self.nScan+1
         time.sleep(1)

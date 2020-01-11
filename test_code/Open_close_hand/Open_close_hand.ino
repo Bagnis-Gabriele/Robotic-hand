@@ -3,7 +3,7 @@
 #define FINGERS 5
 #define MAX_DEGREE 180
 
-//servo pin
+//pin of the servos
 int s1 = 5;
 int s2 = 6;
 int s3 = 7;
@@ -17,7 +17,7 @@ Servo m3;
 Servo m4;
 Servo m5;
 
-//servo degree position
+//initialize the servo degree position
 int p1 = 0;
 int p2 = 0;
 int p3 = 0;
@@ -37,14 +37,13 @@ void setup() {
   m2.write(180);
   m3.write(180);
   m4.write(180);
-  m5.write(0);
+  m5.write(180);
 
   delay(2000);
 }
 
 void loop(){
-  
-  /*close
+  //close
   for(int k=0; k<MAX_DEGREE; k+=5){
     //increment all servos dergees
     p1 += 5;
@@ -93,5 +92,4 @@ void loop(){
     Serial.println(p4);
     Serial.println(p5);
   }
-  */
 }

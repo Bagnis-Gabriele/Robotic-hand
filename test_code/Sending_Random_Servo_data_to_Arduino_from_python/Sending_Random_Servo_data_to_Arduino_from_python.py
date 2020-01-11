@@ -2,7 +2,7 @@ import sys, time, math, serial
 from pynput.keyboard import Key, Listener
 from random import randrange
 
-ARDUINO_PORT_NAME='COM7'
+ARDUINO_PORT_NAME='COM9'
 FREQ_COMMANDS = 0.1
 arduino = serial.Serial(ARDUINO_PORT_NAME ,9600)
 timeCommand=0.0
