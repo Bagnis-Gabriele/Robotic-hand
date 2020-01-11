@@ -37,12 +37,13 @@ void setup() {
   m2.write(180);
   m3.write(180);
   m4.write(180);
-  m5.write(180);
+  m5.write(0);
 
   delay(2000);
 }
 
 void loop(){
+  
   /*close
   for(int k=0; k<MAX_DEGREE; k+=5){
     //increment all servos dergees
