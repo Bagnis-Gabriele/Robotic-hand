@@ -15,12 +15,4 @@
             <actionRule value="2" />
         </EmoStateCondition>
     </EmoMapping>
-    <EmoMapping enabled="1" name="Normal" keys="" sendOnce="0" sendToFocus="1" targetApp="" sendHotKeys="1" ctrlKey="0" altKey="0" shiftKey="0" winKey="0" enterKey="0" hotKey="78" holdKey="0" holdTime="20" triggerDelayTime="20" player="0" mouseclickset="0" mousebutnum="-1">
-        <EmoStateCondition>
-            <enabled value="1" />
-            <action value="17" />
-            <threshold type="bool" value="true" />
-            <actionRule value="0" />
-        </EmoStateCondition>
-    </EmoMapping>
 </EmoMappingModel>
