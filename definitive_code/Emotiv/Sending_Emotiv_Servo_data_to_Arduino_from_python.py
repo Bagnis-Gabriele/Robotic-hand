@@ -12,22 +12,12 @@ def on_press(key):
         open()
     if str(key)=="u'c'":
         close()
-    if str(key)=="u'n'":
-        normal()
     
 def close():
     print "CLOSE"
     global timeCommand
     if time.clock() - timeCommand > FREQ_COMMANDS:
         arduino.write("000000000000000")
-        print "Arduino:" + arduino.read()
-        timeCommand = time.clock()
-
-def normal():
-    print "NORMAL"
-    global timeCommand
-    if time.clock() - timeCommand > FREQ_COMMANDS:
-        arduino.write("090090090090090")
         print "Arduino:" + arduino.read()
         timeCommand = time.clock()
 
