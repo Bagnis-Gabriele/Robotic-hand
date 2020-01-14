@@ -79,17 +79,6 @@ void loop(){
     m4.write(number[3]);
     m5.write(number[4]);
 
-    //print number
-    for (k=0;k<5;k++){
-      if(number[k]<100){
-        if(number[k]<10){
-          Serial.print("00");
-        }else{
-          Serial.print("0");
-        }
-      }
-      Serial.print(number[k]);
-    }
+    Serial.print(1);
   }
-  
 }
