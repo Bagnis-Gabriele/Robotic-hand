@@ -96,6 +96,10 @@ void loop(){
       Serial.print(number[k]);
     }
   }
+
+  for(int i=0; i<FINGERS; i++){
+    distances[i] = analogRead(touch[i])
+  }
   */
 
   //read distacne and memorize it in distances vector
