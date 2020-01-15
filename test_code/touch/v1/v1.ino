@@ -47,7 +47,7 @@ void setup() {
 }
 
 void loop(){
-  /*if there is data avaible read it
+  //if there is data avaible read it
   if(Serial.available()){
     
     //read message
@@ -78,11 +78,10 @@ void loop(){
       number[pos]+=(((int)msg.charAt(k))-48)*power;
     }
 
-    m1.write(number[0]);
-    m2.write(number[1]);
-    m3.write(number[2]);
-    m4.write(number[3]);
-    m5.write(number[4]);
+    //move servos in specified position
+    for(int i=0; i<FINGERS;i++){
+      motors[i].write(number[i]);
+    }
 
     //print number
     for (k=0;k<5;k++){
@@ -98,12 +97,12 @@ void loop(){
   }
 
   for(int i=0; i<FINGERS; i++){
-    distances[i] = analogRead(touch[i])
+    distances[i] = analogRead(touch[i]);
   }
-  */
+  
 
-  //read distacne and memorize it in distances vector
-  distances[0] = analogRead(A0);
+  //read distance and memorize it in distances vector
+  distances[0] = analogRead(touch[0]);
   Serial.println(distances[0]);
 
   delay(1000);
