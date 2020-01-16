@@ -1,47 +1,52 @@
 #include<Servo.h>
 
+#define FINGERS 5
+
 //variables to transform the string into numbers
 String msg;    //message sent from python
-int number[5]; //vector for storing servo data
+int number[FINGERS]; //vector for storing servo data
 int power;     //exponentiation to calculate servo data
 int k;         //counter
 int pos;       //position to store the servo data
 
 //servo pin
-int s1 = 5;
-int s2 = 6;
-int s3 = 7;
-int s4 = 8;
-int s5 = 9;
+int servos[FINGERS] = {5,6,7,8,9};
+
+//tousch pins
+int touch[FINGERS] = {A0,A1,A2,A3,A4};
+
+//vectore that memorize finger's distance
+int distances[FINGERS];
 
 //servo objects
-Servo m1;
-Servo m2;
-Servo m3;
-Servo m4;
-Servo m5;
+Servo motors[FINGERS];
 
 void setup() {
-  //select the servo pin
-  m1.attach(s1);
-  m2.attach(s2);
-  m3.attach(s3);
-  m4.attach(s4);
-  m5.attach(s5);
+  //associate servo motor to pin
+  for(int i=0; i<FINGERS; i++){
+    motors[i].attach(servos[i]);
+  }
   
   //initialize the serial port
   Serial.begin(9600);
   
   //servo reset
-  m1.write(180);
-  m2.write(180);
-  m3.write(180);
-  m4.write(180);
-  m5.write(180);
+  for(int i=0; i<FINGERS; i++){
+    motors[i].write(180);
+  }
+
+  //initialize all fingers distances to 0
+  for(int i=0; i<FINGERS; i++){
+    distances[i] = 0;
+  }
+
+  //set photoresistors pins as input
+  for(int i=0; i<FINGERS; i++){
+    pinMode(touch[i],INPUT);
+  }
 }
 
 void loop(){
-  
   //if there is data avaible read it
   if(Serial.available()){
     
@@ -73,12 +78,33 @@ void loop(){
       number[pos]+=(((int)msg.charAt(k))-48)*power;
     }
 
-    m1.write(number[0]);
-    m2.write(number[1]);
-    m3.write(number[2]);
-    m4.write(number[3]);
-    m5.write(number[4]);
+    //move servos in specified position
+    for(int i=0; i<FINGERS;i++){
+      motors[i].write(number[i]);
+    }
 
-    Serial.print(1);
+    //print number
+    for (k=0;k<5;k++){
+      if(number[k]<100){
+        if(number[k]<10){
+          Serial.print("00");
+        }else{
+          Serial.print("0");
+        }
+      }
+      Serial.print(number[k]);
+    }
   }
+
+  for(int i=0; i<FINGERS; i++){
+    distances[i] = analogRead(touch[i]);
+  }
+  
+
+  //read distance and memorize it in distances vector
+  distances[0] = analogRead(touch[0]);
+  Serial.println(distances[0]);
+
+  delay(1000);
+  
 }

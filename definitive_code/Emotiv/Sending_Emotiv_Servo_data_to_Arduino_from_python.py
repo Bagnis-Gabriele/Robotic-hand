@@ -1,31 +1,29 @@
-import sys, time, math, serial
+import sys, time, math, serial, config
 from pynput.keyboard import Key, Listener
 
-ARDUINO_PORT_NAME='COM4'
-FREQ_COMMANDS = 0.1
-arduino = serial.Serial(ARDUINO_PORT_NAME ,9600)
+arduino = serial.Serial(config.ARDUINO_PORT_NAME ,config.ARDUINO_SERIAL)
 timeCommand=0.0
 
 def on_press(key):
     print str(key)
-    if str(key)=="u'o'":
+    if str(key)==config.K_O:
         open()
-    if str(key)=="u'c'":
+    if str(key)==config.K_C:
         close()
     
 def close():
     print "CLOSE"
     global timeCommand
-    if time.clock() - timeCommand > FREQ_COMMANDS:
-        arduino.write("000000000000000")
+    if time.clock() - timeCommand > config.FREQ_COMMANDS:
+        arduino.write(config.CLOSE)
         print "Arduino:" + arduino.read()
         timeCommand = time.clock()
 
 def open():
     print "OPEN"
     global timeCommand
-    if time.clock() - timeCommand > FREQ_COMMANDS:
-        arduino.write("180180180180180")
+    if time.clock() - timeCommand > config.FREQ_COMMANDS:
+        arduino.write(config.OPEN)
         print "Arduino:" + arduino.read()
         timeCommand = time.clock()
 
