@@ -34,13 +34,13 @@ def writeValue(sensor,fileCSV,mod):
 
 def bip_start():
     try:
-        Beep(5000,1000)
+        winsound.Beep(1000,1000)
     except: 
         pass
 
 def bip_stop():
     try:
-        Beep(10000,3000)
+        winsound.Beep(2000,3000)
     except: 
         pass
 
